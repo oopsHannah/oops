@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> unique font generator</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Font Generator</h1>
-    <textarea id="inputText" placeholder="Type your text here..."></textarea>
-    <button onclick="convertText()">Generate</button>
-    <div id="outputContainer"></div>
-
-    <script src="script.js"></script>
-</body>
-
-    
-</html>
+<label for="fontSelector">Select Font:</label>
+<select id="fontSelector">
+    <option value="font1">Curly Font</option>
+    <option value="font2">Long Font</option>
+    <option value="font3">Cutesy Font</option>
+</select>
+<input type="text" id="inputText" placeholder="Enter text here" />
+<button onclick="convertText()">Convert</button>
+<div id="outputContainer"></div>
