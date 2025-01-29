@@ -3,23 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unique Font Converter</title>
-    <style>
-        .outputBox {
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .outputBox button {
-            margin-left: 10px;
-        }
-    </style>
+    <title>Font Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Font Generator</h1>
+    <textarea id="inputText" placeholder="Type your text here..."></textarea>
+    <button onclick="convertText()">Generate</button>
+    <div id="outputContainer"></div>
 
-    <!-- Input Box -->
-    <textarea id="inputText" rows="4" cols="50" placeholder="Enter your text here..."></textarea>
-    <br>
-    <button onclick="convertText()">Convert</button>
-
-    <!-- Output Boxes 
+    <script src="script.js"></script>
+</body>
+</html>
