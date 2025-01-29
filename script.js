@@ -4,11 +4,11 @@ function convertText() {
 
     // Character mapping (Modify this to change replacements)
     const charMap = {
-        'a': 'l', 'b': 'm', 'c': 'n', 'd': 'o', 'e': 'p',
-        'f': 'q', 'g': 'r', 'h': 's', 'i': 't', 'j': 'u',
-        'k': 'v', 'l': 'w', 'm': 'x', 'n': 'y', 'o': 'z',
-        'p': 'a', 'q': 'b', 'r': 'c', 's': 'd', 't': 'e',
-        'u': 'f', 'v': 'g', 'w': 'h', 'x': 'i', 'y': 'j', 'z': 'k'
+        'a': 'Ꭿ', 'b': 'ᙖ', 'c': '᧙', 'd': 'ȡ', 'e': 'ꕊ',
+        'f': 'ᖴ', 'g': '၅', 'h': 'ƕ', 'i': 'Ꭵ', 'j': '၂',
+        'k': '𐌺', 'l': 'ℓ', 'm': '᧗', 'n': 'ȵ', 'o': 'ᰔ',
+        'p': '𐬮', 'q': '৭', 'r': '𐊯', 's': 'ୡ', 't': 'ȶ',
+        'u': '৩', 'v': 'ⴸ', 'w': 'ຟ', 'x': '𑀌', 'y': 'ꌦ', 'z': '𐰁'
     };
 
     // Convert text using the mapping
