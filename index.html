@@ -1,14 +1,25 @@
-label for="inputTextFont1">Font 1:</label>
-<input type="text" id="inputTextFont1" placeholder="Enter text here" />
-<button onclick="convertText('Curly Font')">Convert</button>
-<div id="outputContainerFont1"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Font Converter</title>
+    <style>
+        .outputBox {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
 
-<label for="inputTextFont2">Font 2:</label>
-<input type="text" id="inputTextFont2" placeholder="Enter text here" />
-<button onclick="convertText('Long Font')">Convert</button>
-<div id="outputContainerFont2"></div>
+        .outputBox button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
 
-<label for="inputTextFont3">Font 3:</label>
-<input type="text" id="inputTextFont3" placeholder="Enter text here" />
-<button onclick="convertText('Cutesy Font')">Convert</button>
-<div id="outputContainerFont3"></div>
+    <!-- Input Box -->
+    <textarea id="inputText" rows="4" cols="50" placeholder="Enter your text here..."></textarea>
+    <br>
+    <button onclick="convertText()">Convert</button>
+
+    <!-- Output Boxes 
