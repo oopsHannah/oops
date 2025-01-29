@@ -1,9 +1,14 @@
-<label for="fontSelector">Select Font:</label>
-<select id="fontSelector">
-    <option value="font1">Curly Font</option>
-    <option value="font2">Long Font</option>
-    <option value="font3">Cutesy Font</option>
-</select>
-<input type="text" id="inputText" placeholder="Enter text here" />
-<button onclick="convertText()">Convert</button>
-<div id="outputContainer"></div>
+label for="inputTextFont1">Font 1:</label>
+<input type="text" id="inputTextFont1" placeholder="Enter text here" />
+<button onclick="convertText('Curly Font')">Convert</button>
+<div id="outputContainerFont1"></div>
+
+<label for="inputTextFont2">Font 2:</label>
+<input type="text" id="inputTextFont2" placeholder="Enter text here" />
+<button onclick="convertText('Long Font')">Convert</button>
+<div id="outputContainerFont2"></div>
+
+<label for="inputTextFont3">Font 3:</label>
+<input type="text" id="inputTextFont3" placeholder="Enter text here" />
+<button onclick="convertText('Cutesy Font')">Convert</button>
+<div id="outputContainerFont3"></div>
