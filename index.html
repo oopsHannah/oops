@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unique Font Generator</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title> -font generator <3- </title>
+    <style>
+        /* Add your styles here for better display */
+        .outputBox {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 18px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            }
+        </style>   
+    </head>
 <body>
-    <h1>Font Generator</h1>
-    <textarea id="inputText" placeholder="Type your text here..."></textarea>
+
+<h1> -font generator <3- </h1>
+    
+<!-- Input area for the user -->
+    <textarea id="inputText" rows="4" cols="50" placeholder="Enter text here..."></textarea><br><br>
+    
+    <!-- Button to trigger the conversion -->
     <button onclick="convertText()">Generate</button>
-    <div id="outputContainerFont1"></div>
-    <div id="outputContainerFont2"></div>
-    <div id="outputContainerFont3"></div>
+    
+    <!-- Output containers for each font style -->
+    <div id="outputContainerFont1" class="outputBox"></div>
+    <div id="outputContainerFont2" class="outputBox"></div>
+    <div id="outputContainerFont3" class="outputBox"></div>
 
     <script src="script.js"></script>
 </body>
