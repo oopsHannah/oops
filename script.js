@@ -1,7 +1,10 @@
 function convertText() {
     const inputText = document.getElementById("inputText").value;
-    const outputContainer = document.getElementById("outputContainer");
+    const outputContainerFont1 = document.getElementById("outputContainerFont1");
+    const outputContainerFont2 = document.getElementById("outputContainerFont2");
+    const outputContainerFont3 = document.getElementById("outputContainerFont3");
 
+    
    // Character mapping for Font 1 (with case-sensitive characters)
     const charMapFont1Lower = {
         'a': 'Ꭿ', 'b': 'ᙖ', 'c': '᧙', 'd': 'ȡ', 'e': 'ꕊ',
@@ -69,26 +72,43 @@ function convertText() {
         '8':'৪',
         '9':'୨'
     };
-    
-// Convert font 1 using the mapping
-    let convertedTextFont1 = inputText.split('').map(char => {
-        return charMap[char.toLowerCase()] || char;
-    }).join('');
 
-// Convert font 2 using the mapping
-    let convertedTextFont2 = inputText.split('').map(char => {
-        return charMap[char.toLowerCase()] || char;
-    }).join('');
-    
-// *Convert font 3 using the mapping
-    let convertedTextFont3 = inputText.split('').map(char => {
-        return charMap[char.toLowerCase()] || char;
-    }).join('');
-    
-//*Convert text for each font (not sure if this is needed)
-    //const convertedTextFont1 = convertUsingMap(inputText, charMapFont1);
-    //const convertedTextFont2 = convertUsingMap(inputText, charMapFont2);
-    //const convertedTextFont3 = convertUsingMap(inputText, charMapFont3);
+    // Helper function to apply character mappings
+    function convertUsingMap(text, charMap) {
+        return text.split('').map(char => {
+            if (char === 'e' + 'e') {
+                return charMapFont1Special['ee']; // Special case for 'ee'
+            }
+            return charMap[char.toLowerCase()] || char; // Map or return original character
+        }).join('');
+    } 
+// Convert Fonts
+    let convertedTextFont1 = convertUsingMap(inputText, charMapFont1Lower);
+    // Convert Font 2
+    let convertedTextFont2 = convertUsingMap(inputText, charMapFont2);
+    // Convert Font 3
+    let convertedTextFont3 = convertUsingMap(inputText, charMapFont3);
+
+ // Display the converted text for each font
+    outputContainerFont1.innerHTML = `
+        <div class="outputBox">
+            <span>${convertedTextFont1}</span>
+            <button onclick="copyToClipboard('${convertedTextFont1}')">Copy</button>
+        </div>
+    `;
+    outputContainerFont2.innerHTML = `
+        <div class="outputBox">
+            <span>${convertedTextFont2}</span>
+            <button onclick="copyToClipboard('${convertedTextFont2}')">Copy</button>
+        </div>
+    `;
+    outputContainerFont3.innerHTML = `
+        <div class="outputBox">
+            <span>${convertedTextFont3}</span>
+            <button onclick="copyToClipboard('${convertedTextFont3}')">Copy</button>
+        </div>
+    `;
+}
 
    
     // Display the converted text for each font
