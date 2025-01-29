@@ -2,7 +2,6 @@
   cursor: url('cursor.cur'), auto;
 }
 
-
 body {
     font-family: Palatino, sans-serif;
     text-align: center;
@@ -39,9 +38,10 @@ button:hover {
     background-color: #ff69b4;
 }
 
-#outputContainer {
+#outputContainerFont1, #outputContainerFont2, #outputContainerFont3 {
     margin-top: 20px;
     text-align: center;
+}
 }
 
 .outputBox {
