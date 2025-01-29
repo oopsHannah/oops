@@ -1,15 +1,25 @@
 function convertText() {
     const inputText = document.getElementById("inputText").value;
 
-    // Character mapping for Font 1 (Curly font)
-    const charMapFont1 = {
+   // Character mapping for Font 1 (with case-sensitive characters)
+    const charMapFont1Lower = {
         'a': 'Ꭿ', 'b': 'ᙖ', 'c': '᧙', 'd': 'ȡ', 'e': 'ꕊ',
         'f': 'ᖴ', 'g': '၅', 'h': 'ƕ',  'i': 'Ꭵ', 'j': '၂',
         'k': '𐌺', 'l': 'ℓ', 'm': '᧗', 'n': 'ȵ', 'o': 'ᰔ',
         'p': '𐬮', 'q': '৭', 'r': '𐊯', 's': 'ୡ', 't': 'ȶ',
         'u': '৩', 'v': 'ⴸ', 'w': 'ຟ', 'x': '𑀌', 'y': 'ꌦ', 'z': '𐰁',
-        'H': 'Ƕ', 'I':'Ꮂ', 'Q': 'Ⴍ', 'T':'Ԏ', 'W':'ฬ', 
-        'ee': 'ꔛ', 'EE':'ꔛ'
+    };
+
+    const charMapFont1Upper = {
+        'a': 'Ꭿ', 'b': 'ᙖ', 'c': '᧙', 'd': 'ȡ', 'e': 'ꕊ',
+        'f': 'ᖴ', 'g': '၅', 'H': 'Ƕ',  'I':'Ꮂ', 'j': '၂',
+        'k': '𐌺', 'l': 'ℓ', 'm': '᧗', 'n': 'ȵ', 'o': 'ᰔ',
+        'p': '𐬮', 'Q': 'Ⴍ', 'r': '𐊯', 's': 'ୡ', 'T':'Ԏ',
+        'u': '৩', 'v': 'ⴸ', 'W':'ฬ', 'x': '𑀌', 'y': 'ꌦ', 'z': '𐰁',
+    };
+     // Special mapping for 'ee' (only for Font 1)
+    const charMapFont1Special = {
+        'ee': 'ꔛ' // Example symbol for 'ee' in Font 1
     };
 // Character mapping for Font 2 (Long font)
     const charMapFont2 = {
@@ -27,8 +37,7 @@ function convertText() {
         'p': '⍴', 'q': '𝗊', 'r': 'r', 's': '᥉', 't': '𝗍',
         'u': 'ᥙ', 'v': '᥎', 'w': 'ω', 'x': '᥊', 'y': 'ყ', 'z': 'z',
     };
-    
-        // Function to convert text based on a specific font's character map
+// Function to convert text based on a specific font's character map
     function convertUsingMap(inputText, charMap) {
         return inputText.split('').map(char => {
             return charMap[char.toLowerCase()] || char;
