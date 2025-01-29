@@ -30,10 +30,6 @@ function convertText() {
         'p': '𐬮', 'Q': 'Ⴍ', 'r': '𐊯', 's': 'ୡ', 'T':'Ԏ',
         'u': '৩', 'v': 'ⴸ', 'W':'ฬ', 'x': '𑀌', 'y': 'ꌦ', 'z': '𐰁',
     };
-     // Special mapping for 'ee' (only for Font 1)
-    const charMapFont1Special = {
-        'ee': 'ꔛ' // Example symbol for 'ee' in Font 1
-    };
 
 // Character mapping for Font 2 (Long font)
     const charMapFont2 = {
@@ -72,64 +68,41 @@ function convertText() {
         '8':'৪',
         '9':'୨'
     };
-
-    // Helper function to apply character mappings
-    function convertUsingMap(text, charMap) {
-        return text.split('').map(char => {
-            if (char === 'e' + 'e') {
-                return charMapFont1Special['ee']; // Special case for 'ee'
+    
+// Special mapping for 'ee' (only for Font 1)
+    const charMapFont1Special = {
+        'ee': 'ꔛ' // Example symbol for 'ee' in Font 1
+    };
+    
+ // Function to replace characters for Font 1 (case-sensitive)
+    function transformFont1(text) {
+        text = text.replace(/ee/g, charMapFont1Special['ee']); // Replace 'ee' first
+        return text.split('').map((char) => {
+            if (char === char.toLowerCase()) {
+                return charMapFont1Lower[char] || char;
+            } else {
+                return charMapFont1Upper[char] || char;
             }
-            return charMap[char.toLowerCase()] || char; // Map or return original character
         }).join('');
-    } 
-// Convert Fonts
-    let convertedTextFont1 = convertUsingMap(inputText, charMapFont1Lower);
-    // Convert Font 2
-    let convertedTextFont2 = convertUsingMap(inputText, charMapFont2);
-    // Convert Font 3
-    let convertedTextFont3 = convertUsingMap(inputText, charMapFont3);
+    }
+    // Function to replace characters for Font 2
+    function transformFont2(text) {
+        return text.split('').map((char) => charMapFont2[char] || char).join('');
+    }
+// Function to replace characters for Font 3
+    function transformFont3(text) {
+        return text.split('').map((char) => charMapFont3[char] || char).join('');
+    }
+    
+ // Apply the transformations
+    const transformedFont1 = transformFont1(inputText);
+    const transformedFont2 = transformFont2(inputText);
+    const transformedFont3 = transformFont3(inputText);
 
- // Display the converted text for each font
-    outputContainerFont1.innerHTML = `
-        <div class="outputBox">
-            <span>${convertedTextFont1}</span>
-            <button onclick="copyToClipboard('${convertedTextFont1}')">Copy</button>
-        </div>
-    `;
-    outputContainerFont2.innerHTML = `
-        <div class="outputBox">
-            <span>${convertedTextFont2}</span>
-            <button onclick="copyToClipboard('${convertedTextFont2}')">Copy</button>
-        </div>
-    `;
-    outputContainerFont3.innerHTML = `
-        <div class="outputBox">
-            <span>${convertedTextFont3}</span>
-            <button onclick="copyToClipboard('${convertedTextFont3}')">Copy</button>
-        </div>
-    `;
-}
-
-   
-    // Display the converted text for each font
-    outputContainer.innerHTML = `
-        <div class="outputBox">
-            <span>${convertedText}</span>
-            <button onclick="copyToClipboard('${convertedTextFont1}')">Copy</button>
-        </div>
-    `;
-     outputContainer.innerHTML = `
-        <div class="outputBox">
-            <span>${convertedText}</span>
-            <button onclick="copyToClipboard('${convertedTextFont2}')">Copy</button>
-        </div>
-    `;
-     outputContainer.innerHTML = `
-        <div class="outputBox">
-            <span>${convertedText}</span>
-            <button onclick="copyToClipboard('${convertedTextFont3}')">Copy</button>
-        </div>
-    `;
+    // Display the transformed text in the corresponding containers
+    outputContainerFont1.innerHTML = `<div class="outputBox">${transformedFont1}</div>`;
+    outputContainerFont2.innerHTML = `<div class="outputBox">${transformedFont2}</div>`;
+    outputContainerFont3.innerHTML = `<div class="outputBox">${transformedFont3}</div>`;
 }
 
 // Copy text to clipboard
