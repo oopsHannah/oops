@@ -7,13 +7,13 @@ body {
     text-align: center;
     background-color: #ff8da1;
     padding: 20px;
-    font-style: italic;
     color: #ffffff
   
 }
 
 h1 {
     margin-bottom: 20px;
+      font-style: italic;
 }
 
 textarea {
