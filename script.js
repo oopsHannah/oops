@@ -13,8 +13,6 @@ function convertText() {
         '0':'ꄲ', '1':'⥠','2':'Ձ','3':'Յ','4':'Ꮞ','5':'𝟓','6':'᱙',
         '7':'𝟕','8':'৪','9':'𖧁'
   }
-    };
-
   "font2": {
         'a': 'Ꭿ', 'b': 'ᖲ', 'c': 'ꉔ', 'd': 'ᖱ', 'e': '𐒢',
         'f': 'ᖴ', 'g': '❡', 'h': 'ꀿ',  'i': 'Ꭵ', 'j': 'ᒍ',
@@ -24,7 +22,6 @@ function convertText() {
         '0':'ꄲ', '1':'⥠','2':'ᒿ','3':'ჳ','4':'Ꮞ','5':'𝟓','6':'Ꮾ',
         '7':'𝟕','8':'৪','9':'୨'
   }
-    };
   "font3": {   
         'a': 'α', 'b': 'ᑲ', 'c': 'ᥴ', 'd': 'ԃ', 'e': 'ჲ',
         'f': 'ƒ', 'g': 'ɠ', 'h': 'ի',  'i': 'ᎥᎥ', 'j': 'ʝ',
@@ -35,12 +32,13 @@ function convertText() {
         '4':'𐨰',
         '5':'𝟓','6':'᥀','7':'𝟕','8':'৪','9':'୨'
   }
-    };
+};
     
             // Function to apply font conversion
-            function convert(input, mapping) {
-                return input.split('').map(char => mapping[char.toLowerCase()] || char).join('');
-            }
+           function convert(input, mapping) {
+    return input.split('').map(char => mapping[char] || char).join('');
+}
+
 
             // Update output boxes
             document.getElementById("outputFont1").textContent = convert(inputText, fontMaps["font1"]);
