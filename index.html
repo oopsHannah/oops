@@ -9,29 +9,27 @@
     </head>
 <body>
 <h1> ~ font generator <3 ~ </h1>
+    <p class="subtext">xoxo, goddess of love</p>
     
-<!-- Input area for the user -->
     <textarea id="inputText" placeholder="Type your text here..."></textarea>
+    <button onclick="convertText()">generate!</button>
     
-    <!-- Button to trigger the conversion -->
-    <button onclick="convertText()">Generate</button>
-    
-   <div class="outputContainer">
-    <h3>Font 1</h3>
-    <div id="outputContainerFont1" class="outputBox"></div>
-    <button onclick="copyToClipboard('outputContainerFont1')">Copy to Clipboard</button>
+   <div class="font-section">
+    <h2>curly font</h2>
+    <div class="output-box" id="outputFont1">curly font here!</div>
+    <button class="copy-btn" onclick="copyToClipboard('outputFont1')">copy</button>  
 </div>
 
-<div class="outputContainer">
-    <h3>Font 2</h3>
-    <div id="outputContainerFont2" class="outputBox"></div>
-    <button onclick="copyToClipboard('outputContainerFont2')">Copy to Clipboard</button>
+<div class="font-section">
+    <h2>long font</h2>
+    <div class="output-box" id="outputFont2">long font here!</div>
+    <button class="copy-btn" onclick="copyToClipboard('outputFont2')">copy</button>  
 </div>
 
-<div class="outputContainer">
-    <h3>Font 3</h3>
-    <div id="outputContainerFont3" class="outputBox"></div>
-    <button onclick="copyToClipboard('outputContainerFont3')">Copy to Clipboard</button>
+<div class="font-section">
+    <h2>cutesy font</h2>
+    <div class="output-box" id="outputFont3">cutesy font here!</div>
+    <button class="copy-btn" onclick="copyToClipboard('outputFont3')">copy</button>  
 </div>
 
     <script src="script.js"></script>
