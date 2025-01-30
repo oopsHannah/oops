@@ -41,6 +41,10 @@ function convertText() {
     const inputText = split('').map(char => fontMap[char] || char).join('')
 }
 
+ // Event listener for "Generate" button
+        document.getElementById('generateButton').addEventListener('click', function() {
+            const inputText = document.getElementById('inputText').value;
+
            // Apply character mapping transformations
             const font1Text = transformText(inputText, fontMaps.font1);
             const font2Text = transformText(inputText, fontMaps.font2);
@@ -52,14 +56,17 @@ function convertText() {
             document.getElementById('font3').innerText = font3Text;
         });
 
-    // Display the converted text
-    outputContainer.innerHTML = `
-        <div class="outputBox">
-            <span>${convertedText}</span>
-            <button onclick="copyToClipboard('${convertedText}')">copy</button>
-        </div>
-    `;
-}
+   // Event listeners for "Copy" buttons
+        const copyButtons = document.querySelectorAll('.copy-button');
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = button.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                const textToCopy = targetElement.innerText;
 
+                // Copy to clipboard without alert
+                navigator.clipboard.writeText(textToCopy);
+            });
+        });
 
  
