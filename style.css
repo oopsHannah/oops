@@ -41,17 +41,12 @@ button:hover {
     background-color: #ff69b4;
 }
 
-#outputContainerFont1, #outputContainerFont2, #outputContainerFont3 {
-    margin-top: 20px;
-    text-align: center;
-}
+.output-box {
+  background-color: #ffc0cb;
+  padding: 10px;
+  margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
 }
 
-.outputBox {
-    display: inline-block;
-    background: white;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
