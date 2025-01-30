@@ -1,5 +1,6 @@
 function convertText() {
     const inputText = document.getElementById("inputText").value;
+    const fontSelector = document.getElementById("fontSelector").value;
     const outputContainer = document.getElementById("outputContainer");
 
     
