@@ -4,29 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> ~ font generator <3 ~ </title>
-    <style>
-        /* Add your styles here for better display */
-        .outputBox {
-            border: 1px solid black;
-            padding: 10px;
-            margin-top: 10px;
-            font-size: 18px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            }
-        </style>   
+   <link rel="stylesheet" href="style.css">
+</head>
     </head>
 <body>
-
 <h1> ~ font generator <3 ~ </h1>
     
 <!-- Input area for the user -->
-    <textarea id="inputText" rows="4" cols="50" placeholder="Enter text here..."></textarea><br><br>
+    <textarea id="inputText" placeholder="Type your text here..."></textarea>
     
     <!-- Button to trigger the conversion -->
     <button onclick="convertText()">Generate</button>
     
-    <!-- Output containers for each font style -->
    <div class="outputContainer">
     <h3>Font 1</h3>
     <div id="outputContainerFont1" class="outputBox"></div>
