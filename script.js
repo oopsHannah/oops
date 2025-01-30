@@ -60,13 +60,6 @@ function convertText() {
         </div>
     `;
 }
-        // Copy text to clipboard
-        function copyToClipboard(elementId) {
-            const text = document.getElementById(elementId).textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                alert("copied to clipboard!");
-            });
 
-        }
 
  
