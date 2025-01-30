@@ -1,5 +1,6 @@
 function convertText() {
     const inputText = document.getElementById("inputText").value;
+    const outputContainer = document.getElementById("outputContainer");
 
     
     // Character mappings for three different fonts
@@ -75,7 +76,6 @@ function convertText() {
            function convert(input, mapping) {
     return input.split('').map(char => mapping[char] || char).join('');
 }
-
 
             // Update output boxes
             document.getElementById("outputFont1").textContent = convert(inputText, fontMaps["font1"]);
