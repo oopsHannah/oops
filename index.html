@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> -font generator <3- </title>
+    <title> ~ font generator <3 ~ </title>
     <style>
         /* Add your styles here for better display */
         .outputBox {
@@ -18,7 +18,7 @@
     </head>
 <body>
 
-<h1> -font generator <3- </h1>
+<h1> ~ font generator <3 ~ </h1>
     
 <!-- Input area for the user -->
     <textarea id="inputText" rows="4" cols="50" placeholder="Enter text here..."></textarea><br><br>
@@ -27,9 +27,23 @@
     <button onclick="convertText()">Generate</button>
     
     <!-- Output containers for each font style -->
+   <div class="outputContainer">
+    <h3>Font 1</h3>
     <div id="outputContainerFont1" class="outputBox"></div>
+    <button onclick="copyToClipboard('outputContainerFont1')">Copy to Clipboard</button>
+</div>
+
+<div class="outputContainer">
+    <h3>Font 2</h3>
     <div id="outputContainerFont2" class="outputBox"></div>
+    <button onclick="copyToClipboard('outputContainerFont2')">Copy to Clipboard</button>
+</div>
+
+<div class="outputContainer">
+    <h3>Font 3</h3>
     <div id="outputContainerFont3" class="outputBox"></div>
+    <button onclick="copyToClipboard('outputContainerFont3')">Copy to Clipboard</button>
+</div>
 
     <script src="script.js"></script>
 </body>
