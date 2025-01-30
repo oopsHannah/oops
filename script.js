@@ -100,10 +100,10 @@ function convertText() {
     const transformedFont3 = transformFont3(inputText);
 
     // Display the transformed text in the corresponding containers
-    outputContainerFont1.innerHTML = `<div class="outputBox">${transformedFont1}</div>`;
-    outputContainerFont2.innerHTML = `<div class="outputBox">${transformedFont2}</div>`;
-    outputContainerFont3.innerHTML = `<div class="outputBox">${transformedFont3}</div>`;
-}
+    outputContainerFont1.textContent = transformedFont1;
+    outputContainerFont2.textContent = transformedFont2;
+    outputContainerFont3.textContent = transformedFont3;
+
 
 // Copy text to clipboard
 function copyToClipboard(text) {
