@@ -2,7 +2,7 @@ function convertText() {
     const inputText = document.getElementById("inputText").value;
     const outputContainer = document.getElementById("outputContainer");
 
-    // Character mapping (Modify this to change replacements)
+    // Character mapping
     const charMap = {
         'a': 'Ꭿ', 'b': 'ᙖ', 'c': '᧙', 'd': 'ȡ', 'e': 'ꕊ',
         'f': 'ᖴ', 'g': '၅', 'h': 'ƕ', 'i': 'Ꭵ', 'j': '၂',
