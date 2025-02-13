@@ -39,10 +39,15 @@ function convertText() {
     let convertedText = inputText.split('').map(char => {
         return charMap[selectedMap][char.toLowerCase()] || char;
     }).join('');
+     
+// Escape quotes to avoid breaking the onclick attribute
+        let escapedText = convertedText.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
-document.getElementById(`outputMap${index + 1}`).innerHTML = `
-            <span>${convertedText}</span>
-            <button onclick="copyToClipboard('${convertedText}')">copy</button>
+      document.getElementById(`outputMap${index + 1}`).innerHTML = `
+            <div class="outputBox">
+                <span>${convertedText}</span>
+                <button onclick="copyToClipboard('${escapedText}')">copy</button>
+            </div>
         `;
     });
 }
