@@ -1,8 +1,5 @@
 function convertText() {
     const inputText = document.getElementById("inputText").value;
-    const outputContainer = document.getElementById("outputContainer");
-    const selectedMap = document.getElementById("charMapSelect").value;
-
 
     // Character mapping
     const charMap = {
@@ -38,18 +35,18 @@ function convertText() {
 
     
     // Convert text using the mapping
+ Object.keys(charMaps).forEach((map, index) => {
     let convertedText = inputText.split('').map(char => {
         return charMap[selectedMap][char.toLowerCase()] || char;
     }).join('');
 
-    // Display the converted text
-    outputContainer.innerHTML = `
-        <div class="outputBox">
+document.getElementById(`outputMap${index + 1}`).innerHTML = `
             <span>${convertedText}</span>
             <button onclick="copyToClipboard('${convertedText}')">copy</button>
-        </div>
-    `;
+        `;
+    });
 }
+
 
 // Copy text to clipboard
 function copyToClipboard(text) {
