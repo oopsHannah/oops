@@ -20,7 +20,7 @@ function convertText() {
     outputContainer.innerHTML = `
         <div class="outputBox">
             <span>${convertedText}</span>
-            <button onclick="copyToClipboard('${convertedText}')">Copy</button>
+            <button onclick="copyToClipboard('${convertedText}')">copy</button>
         </div>
     `;
 }
@@ -28,6 +28,6 @@ function convertText() {
 // Copy text to clipboard
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        alert("Copied to clipboard!");
+        alert("copied to clipboard!");
     });
 }
