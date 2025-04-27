@@ -32,7 +32,7 @@ const charMapFont3 = {
   'u': 'ᥙ', 'v': '᥎', 'w': 'ω', 'x': '᥊', 'y': 'ყ', 'z': 'z'
 };
 
-// Transform functions for each font
+// Functions to transform each font
 function transformFont1(text) {
   let transformed = text.replace(/ee/gi, () => charMapFont1Special['ee']);
   return transformed.split('').map(char => {
@@ -55,7 +55,7 @@ function transformFont3(text) {
   }).join('');
 }
 
-// Typing effect for each preview
+// Typing animation per box
 function typeText(element, text) {
   element.textContent = '';
   element.style.animation = 'none';
@@ -88,11 +88,12 @@ function updateAllPreviews() {
   typeText(previewFont3, font3Text);
 }
 
-// Copy function (copy from Font 1)
-function copyText() {
-  navigator.clipboard.writeText(previewFont1.textContent);
+// Copy specific preview
+function copyText(id) {
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text);
   alert('copied to clipboard!');
 }
 
-// Event listeners
+// Event listener
 textInput.addEventListener('input', updateAllPreviews);
