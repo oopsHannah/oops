@@ -78,6 +78,11 @@ button:hover {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   animation: pop 0.2s ease; /* Animation on type */
 
+    textarea, #preview {
+  display: block;
+  margin: 0 auto;
+}
+    
 /* Cute pop animation */
 @keyframes pop {
   0% {
