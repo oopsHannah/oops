@@ -11,34 +11,29 @@ body {
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-style: italic;
+  font-size: 2.5rem;
 }
 
 .subtext {
   margin-bottom: 30px;
   font-style: italic;
+  font-size: 1.2rem;
 }
 
 textarea {
   width: 80%;
   max-width: 500px;
   height: 100px;
-  padding: 10px;
+  padding: 15px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.preview, #preview {
-  width: 80%;
-  max-width: 500px;
-  padding: 10px;
-  margin-top: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: white;
-  color: black;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  background-color: #ffe6eb; /* Very light pink */
+  color: #333; /* Darker text for typing */
+  resize: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .buttons {
@@ -49,40 +44,50 @@ textarea {
 }
 
 button {
-  padding: 10px;
+  padding: 12px 24px;
   font-size: 16px;
-  background-color: #ffc0cb;
+  background-color: #ffc0cb; /* Pastel pink */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-}
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
 button:hover {
-  background-color: #ff69b4;
+  background-color: #ff69b4; /* Brighter pink on hover */
+  transform: scale(1.05);
 }
 
-/* Add these keyframes at the bottom */
+  #preview {
+  width: 80%;
+  max-width: 500px;
+  padding: 15px;
+  margin-top: 20px;
+  border: 2px solid #ffffff; /* White border */
+  border-radius: 8px;
+  background-color: #ffe6eb; /* Soft background */
+  color: #333; /* Dark text for readability */
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-style: italic;
+  word-break: break-word;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pop 0.2s ease; /* Animation on type */
+
+/* Cute pop animation */
 @keyframes pop {
   0% {
-    transform: scale(1.05);
-    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
   }
   100% {
     transform: scale(1);
-    opacity: 1;
   }
-}
-
-.preview, #preview {
-  width: 80%;
-  max-width: 500px;
-  padding: 10px;
-  margin-top: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: white;
-  color: black;
-  animation: pop 0.2s ease;
 }
 
