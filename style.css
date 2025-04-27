@@ -16,6 +16,15 @@ h1 {
       font-style: italic;
 }
 
+input-area {
+    width: 80%;
+    max-width: 500px;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
 textarea {
     width: 80%;
     max-width: 500px;
@@ -26,7 +35,19 @@ textarea {
     border-radius: 5px;
 }
 
-button {
+.preview {
+      width: 80%;
+      max-width: 500px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  
+   .buttons {
+      display: flex;
+      gap: 20px;
+    }
+  
+  button {
     padding: 10px;
     margin: 10px;
     font-size: 16px;
@@ -35,20 +56,11 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} 
 
 button:hover {
     background-color: #ff69b4;
 }
 
-output-box {
- padding: 10px;
-    margin: 10px;
-    font-size: 16px;
-    background-color: #ffc0cb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+  </style>
 
