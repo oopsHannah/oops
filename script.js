@@ -1,9 +1,9 @@
-function convertText() {
-    const inputText = document.getElementById("inputText").value;
-    const outputContainer = document.getElementById("outputContainer");
+<script>
+    const textInput = document.getElementById('textInput');
+    const preview = document.getElementById('preview');
 
-    // Character mapping (Modify this to change replacements)
-    const charMap = {
+// Character mapping (Modify this to change replacements)
+    const replacementMap = {
         'a': 'Ꭿ', 'b': 'ᙖ', 'c': '᧙', 'd': 'ȡ', 'e': 'ꕊ',
         'f': 'ᖴ', 'g': '၅', 'h': 'ƕ', 'i': 'Ꭵ', 'j': '၂',
         'k': '𐌺', 'l': 'ℓ', 'm': '᧗', 'n': 'ȵ', 'o': 'ᰔ',
@@ -13,23 +13,33 @@ function convertText() {
         '7':'𝟕','8':'৪','9':'𖧁'
     };
 
-    // Convert text using the mapping
-    let convertedText = inputText.split('').map(char => {
-        return charMap[char.toLowerCase()] || char;
-    }).join('');
+    function transformText(text) {
+      return text.split('').map(char => {
+        const upperChar = char.toUpperCase();
+        return replacementMap[upperChar] || char;
+      }).join('');
+    }
 
-    // Display the converted text
-    outputContainer.innerHTML = `
-        <div class="outputBox">
-            <span>${convertedText}</span>
-            <button onclick="copyToClipboard('${convertedText}')">copy</button>
-        </div>
-    `;
-}
+    function updatePreview() {
+      const inputText = textInput.value;
+      preview.textContent = inputText ? transformText(inputText) : 'font preview...';
+    }
 
-// Copy text to clipboard
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        alert("copied to clipboard!");
-    });
-}
+    function copyText() {
+      navigator.clipboard.writeText(transformText(textInput.value));
+      alert('copied to clipboard!');
+    }
+
+    function downloadText() {
+      const blob = new Blob([transformText(textInput.value)], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'text.txt';
+      link.click();
+    }
+
+    textInput.addEventListener('input', updatePreview);
+  </script>
+
+</body>
+</html>
