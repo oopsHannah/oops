@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ~ font generator <3 ~ </title>
-   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ~ font generator <3 ~ </title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1> ~ font generator <3 ~ </h1>
-    <p class="subtext">xoxo, goddess of love</p>
-    
-    <textarea id="inputText" placeholder="enter text here..."></textarea>
-    <button onclick="convertText()">generate!</button>
-    <div id="outputContainer"></div>
 
-    <script src="script.js"></script>
+<h1> ~ font generator <3 ~ </h1>
+<p class="subtext">xoxo, goddess of love</p>
+
+<textarea id="textInput" placeholder="enter text here..."></textarea>
+<div class="buttons">
+  <button onclick="copyText()">copy!</button>
+  <button onclick="downloadText()">download!</button>
+</div>
+<div id="preview">font preview...</div>
+
+<script src="script.js"></script>
 </body>
 </html>
