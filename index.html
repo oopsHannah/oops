@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> ~ font generator <3 ~ </title>
+  <title>~ font generator <3 ~</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1> ~ font generator <3 ~ </h1>
-<p class="subtext">xoxo, goddess of love</p>
+  <h1>~ font generator <3 ~</h1>
+  <p class="subtext">xoxo, goddess of love</p>
 
-<textarea id="textInput" placeholder="enter text here..."></textarea>
-<div class="buttons">
-  <button onclick="copyText()">copy!</button>
-</div>
-<div id="preview">font preview...</div>
+  <select id="fontSelect">
+    <option value="font1">pretty font ♡</option>
+    <option value="font2">long font ✨</option>
+    <option value="font3">cutesy font 🍥</option>
+  </select>
 
-<script src="script.js"></script>
+  <textarea id="textInput" placeholder="enter text here..."></textarea>
+
+  <div class="buttons">
+    <button onclick="copyText()">copy!</button>
+  </div>
+
+  <div id="preview">font preview...</div>
+
+  <script src="script.js"></script>
 </body>
 </html>
