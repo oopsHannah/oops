@@ -1,6 +1,7 @@
 const textInput = document.getElementById('textInput');
-const preview = document.getElementById('preview');
-const fontSelect = document.getElementById('fontSelect');
+const previewFont1 = document.getElementById('previewFont1');
+const previewFont2 = document.getElementById('previewFont2');
+const previewFont3 = document.getElementById('previewFont3');
 
 // Font maps
 const charMapFont1Upper = {
@@ -31,50 +32,67 @@ const charMapFont3 = {
   'u': 'ᥙ', 'v': '᥎', 'w': 'ω', 'x': '᥊', 'y': 'ყ', 'z': 'z'
 };
 
-// Functions
-function transformText(text) {
-  const selectedFont = fontSelect.value;
-  let transformed = text;
+// Transform functions for each font
+function transformFont1(text) {
+  let transformed = text.replace(/ee/gi, () => charMapFont1Special['ee']);
+  return transformed.split('').map(char => {
+    const lowerChar = char.toLowerCase();
+    return charMapFont1Upper[lowerChar] || char;
+  }).join('');
+}
 
-  if (selectedFont === 'font1') {
-    // Handle 'ee' first
-    transformed = transformed.replace(/ee/gi, () => {
-      return charMapFont1Special['ee'];
-    });
-    transformed = transformed.split('').map(char => {
-      const lowerChar = char.toLowerCase();
-      return charMapFont1Upper[lowerChar] || char;
-    }).join('');
-  } else if (selectedFont === 'font2') {
-    transformed = transformed.split('').map(char => {
-      const lowerChar = char.toLowerCase();
-      return charMapFont2[lowerChar] || char;
-    }).join('');
-  } else if (selectedFont === 'font3') {
-    transformed = transformed.split('').map(char => {
-      const lowerChar = char.toLowerCase();
-      return charMapFont3[lowerChar] || char;
-    }).join('');
+function transformFont2(text) {
+  return text.split('').map(char => {
+    const lowerChar = char.toLowerCase();
+    return charMapFont2[lowerChar] || char;
+  }).join('');
+}
+
+function transformFont3(text) {
+  return text.split('').map(char => {
+    const lowerChar = char.toLowerCase();
+    return charMapFont3[lowerChar] || char;
+  }).join('');
+}
+
+// Typing effect for each preview
+function typeText(element, text) {
+  element.textContent = '';
+  element.style.animation = 'none';
+  element.offsetHeight;
+  element.style.animation = 'pop 0.2s ease';
+
+  let index = 0;
+  const typingSpeed = 30;
+
+  function typeLetter() {
+    if (index < text.length) {
+      element.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeLetter, typingSpeed);
+    }
   }
-
-  return transformed;
+  typeLetter();
 }
 
-function updatePreview() {
+// Update all previews
+function updateAllPreviews() {
   const inputText = textInput.value;
-  preview.textContent = inputText ? transformText(inputText) : 'font preview...';
 
-  // Restart animation
-  preview.style.animation = 'none';
-  preview.offsetHeight; // Trigger reflow
-  preview.style.animation = 'pop 0.2s ease';
+  const font1Text = inputText ? transformFont1(inputText) : 'font 1 preview...';
+  const font2Text = inputText ? transformFont2(inputText) : 'font 2 preview...';
+  const font3Text = inputText ? transformFont3(inputText) : 'font 3 preview...';
+
+  typeText(previewFont1, font1Text);
+  typeText(previewFont2, font2Text);
+  typeText(previewFont3, font3Text);
 }
 
+// Copy function (copy from Font 1)
 function copyText() {
-  navigator.clipboard.writeText(preview.textContent);
+  navigator.clipboard.writeText(previewFont1.textContent);
   alert('copied to clipboard!');
 }
 
 // Event listeners
-textInput.addEventListener('input', updatePreview);
-fontSelect.addEventListener('change', updatePreview);
+textInput.addEventListener('input', updateAllPreviews);
