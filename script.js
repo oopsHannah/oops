@@ -22,7 +22,13 @@ function transformText(text) {
 function updatePreview() {
   const inputText = textInput.value;
   preview.textContent = inputText ? transformText(inputText) : 'font preview...';
+
+  // Restart animation
+  preview.style.animation = 'none';
+  preview.offsetHeight; // trigger reflow
+  preview.style.animation = 'pop 0.2s ease';
 }
+
 
 function copyText() {
   navigator.clipboard.writeText(preview.textContent);
