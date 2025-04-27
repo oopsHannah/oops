@@ -32,7 +32,7 @@ const charMapFont3 = {
   'u': 'ᥙ', 'v': '᥎', 'w': 'ω', 'x': '᥊', 'y': 'ყ', 'z': 'z'
 };
 
-// Functions to transform each font
+// Transform functions
 function transformFont1(text) {
   let transformed = text.replace(/ee/gi, () => charMapFont1Special['ee']);
   return transformed.split('').map(char => {
@@ -55,7 +55,7 @@ function transformFont3(text) {
   }).join('');
 }
 
-// Typing animation per box
+// Typing animation for each box
 function typeText(element, text) {
   element.textContent = '';
   element.style.animation = 'none';
@@ -75,7 +75,7 @@ function typeText(element, text) {
   typeLetter();
 }
 
-// Update all previews
+// Update previews
 function updateAllPreviews() {
   const inputText = textInput.value;
 
@@ -88,12 +88,72 @@ function updateAllPreviews() {
   typeText(previewFont3, font3Text);
 }
 
-// Copy specific preview
+// Copy and sparkle and hearts
 function copyText(id) {
   const text = document.getElementById(id).textContent;
   navigator.clipboard.writeText(text);
-  alert('copied to clipboard!');
+
+  const button = event.target;
+  button.classList.add('sparkle');
+
+  setTimeout(() => {
+    button.classList.remove('sparkle');
+  }, 500);
+
+  showToast();
+  spawnHeart();
+  playDing();
 }
 
-// Event listener
+// Show "copied!" toast
+function showToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000);
+}
+
+// Play ding sound
+function playDing() {
+  const ding = document.getElementById('dingSound');
+  ding.currentTime = 0;
+  ding.play();
+}
+
+// Spawn multiple random hearts
+function spawnHeart() {
+  const heartEmojis = ['💖', '💕', '💗', '💓'];
+  const heartsContainer = document.getElementById('hearts-container');
+
+  const numberOfHearts = Math.floor(Math.random() * 3) + 2; // 2-4 hearts
+
+  for (let i = 0; i < numberOfHearts; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+
+    heart.style.left = Math.random() * 90 + '%';
+    heart.style.top = (80 + Math.random() * 10) + '%';
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 2000);
+  }
+}
+
+// Sparkle trail following mouse
+document.addEventListener('mousemove', function(e) {
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.style.left = e.clientX + 'px';
+  sparkle.style.top = e.clientY + 'px';
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => sparkle.remove(), 500);
+});
+
+// Event listener for typing
 textInput.addEventListener('input', updateAllPreviews);
