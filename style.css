@@ -1,3 +1,4 @@
+/* General styles */
 * {
   cursor: url('cursor.cur'), auto;
 }
@@ -10,6 +11,7 @@ body {
   color: #ffffff;
 }
 
+/* Heading and subtext */
 h1 {
   margin-bottom: 10px;
   font-style: italic;
@@ -17,11 +19,24 @@ h1 {
 }
 
 .subtext {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-style: italic;
   font-size: 1.2rem;
 }
 
+/* Dropdown font select */
+#fontSelect {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  background-color: #ffc0cb;
+  color: white;
+  cursor: pointer;
+}
+
+/* Textarea input */
 textarea {
   width: 80%;
   max-width: 500px;
@@ -30,14 +45,17 @@ textarea {
   font-size: 16px;
   border: 2px solid #ffffff;
   border-radius: 8px;
-  background-color: #ffe6eb; /* Very light pink */
-  color: #333; /* Darker text for typing */
+  background-color: #ffe6eb;
+  color: #333;
   resize: none;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto 20px;
 }
 
+/* Buttons */
 .buttons {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -46,28 +64,30 @@ textarea {
 button {
   padding: 12px 24px;
   font-size: 16px;
-  background-color: #ffc0cb; /* Pastel pink */
+  background-color: #ffc0cb;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 button:hover {
-  background-color: #ff69b4; /* Brighter pink on hover */
+  background-color: #ff69b4;
   transform: scale(1.05);
 }
 
-  #preview {
+/* Preview box */
+#preview {
   width: 80%;
   max-width: 500px;
   padding: 15px;
-  margin-top: 20px;
-  border: 2px solid #ffffff; /* White border */
+  margin: 20px auto 0;
+  border: 2px solid #ffffff;
   border-radius: 8px;
-  background-color: #ffe6eb; /* Soft background */
-  color: #333; /* Dark text for readability */
+  background-color: #ffe6eb;
+  color: #333;
   min-height: 100px;
   display: flex;
   align-items: center;
@@ -76,13 +96,9 @@ button:hover {
   font-style: italic;
   word-break: break-word;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  animation: pop 0.2s ease; /* Animation on type */
-
-    textarea, #preview {
-  display: block;
-  margin: 0 auto;
+  animation: pop 0.2s ease;
 }
-    
+
 /* Cute pop animation */
 @keyframes pop {
   0% {
@@ -95,4 +111,3 @@ button:hover {
     transform: scale(1);
   }
 }
-
