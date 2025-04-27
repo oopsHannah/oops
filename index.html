@@ -14,25 +14,24 @@
 
   <textarea id="textInput" placeholder="enter text here..."></textarea>
 
-  <div class="buttons">
-    <button onclick="copyText()">copy!</button>
-  </div>
-
   <div class="preview-container">
 
     <div class="preview-group">
       <p class="preview-label">pretty font ♡</p>
       <div class="font-box" id="previewFont1">font 1 preview...</div>
+      <button class="copy-button" onclick="copyText('previewFont1')">copy pretty font!</button>
     </div>
 
     <div class="preview-group">
       <p class="preview-label">long font ✨</p>
       <div class="font-box" id="previewFont2">font 2 preview...</div>
+      <button class="copy-button" onclick="copyText('previewFont2')">copy long font!</button>
     </div>
 
     <div class="preview-group">
       <p class="preview-label">cutesy font 🍥</p>
       <div class="font-box" id="previewFont3">font 3 preview...</div>
+      <button class="copy-button" onclick="copyText('previewFont3')">copy cutesy font!</button>
     </div>
 
   </div>
