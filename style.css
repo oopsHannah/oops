@@ -61,3 +61,28 @@ button {
 button:hover {
   background-color: #ff69b4;
 }
+
+/* Add these keyframes at the bottom */
+@keyframes pop {
+  0% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.preview, #preview {
+  width: 80%;
+  max-width: 500px;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  color: black;
+  animation: pop 0.2s ease;
+}
+
