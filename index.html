@@ -1,31 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>~ font generator <3 ~</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
-</head>
+<textarea id="textInput" placeholder="enter text here..."></textarea>
 
+<div class="buttons">
+  <button onclick="copyText()">copy!</button>
+</div>
 
-  <h1>~ font generator <3 ~</h1>
-  <p class="subtext">xoxo, goddess of love</p>
-
-  <select id="fontSelect">
-    <option value="font1">pretty font ♡</option>
-    <option value="font2">long font ✨</option>
-    <option value="font3">cutesy font 🍥</option>
-  </select>
-
-  <textarea id="textInput" placeholder="enter text here..."></textarea>
-
-  <div class="buttons">
-    <button onclick="copyText()">copy!</button>
-  </div>
-
-  <div id="preview">font preview...</div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<div class="preview-container">
+  <div class="font-box" id="previewFont1">font 1 preview...</div>
+  <div class="font-box" id="previewFont2">font 2 preview...</div>
+  <div class="font-box" id="previewFont3">font 3 preview...</div>
+</div>
