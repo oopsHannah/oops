@@ -2,6 +2,7 @@ const textInput = document.getElementById('textInput');
 const previewFont1 = document.getElementById('previewFont1');
 const previewFont2 = document.getElementById('previewFont2');
 const previewFont3 = document.getElementById('previewFont3');
+const WORD_BOUNDARY = /[\s\n\r\t.,!?;:()\[\]{}"'\-]/;
 
 // Font maps
 const charMapFont1Upper = {
@@ -76,16 +77,23 @@ function typeText(element, text) {
 }
 
 // Update previews
-function updateAllPreviews() {
+function updateAllPreviews(animate = false) {
   const inputText = textInput.value;
 
   const font1Text = inputText ? transformFont1(inputText) : 'font 1 preview...';
   const font2Text = inputText ? transformFont2(inputText) : 'font 2 preview...';
   const font3Text = inputText ? transformFont3(inputText) : 'font 3 preview...';
 
-  typeText(previewFont1, font1Text);
-  typeText(previewFont2, font2Text);
-  typeText(previewFont3, font3Text);
+  if (animate) {
+    typeText(previewFont1, font1Text);
+    typeText(previewFont2, font2Text);
+    typeText(previewFont3, font3Text);
+  } else {
+    // instant update (no clearing, no retyping)
+    previewFont1.textContent = font1Text;
+    previewFont2.textContent = font2Text;
+    previewFont3.textContent = font3Text;
+  }
 }
 
 // Copy and sparkle and hearts
@@ -156,4 +164,24 @@ document.addEventListener('mousemove', function(e) {
 });
 
 // Event listener for typing
-textInput.addEventListener('input', updateAllPreviews);
+textInput.addEventListener('input', (e) => {
+  // always update text instantly
+  updateAllPreviews(false);
+
+  // only animate when a word is finished
+  const v = e.target.value;
+  const lastChar = v.slice(-1);
+
+  if (WORD_BOUNDARY.test(lastChar)) {
+    updateAllPreviews(true);
+  }
+});
+// Animate properly on paste
+textInput.addEventListener('paste', () => {
+  requestAnimationFrame(() => updateAllPreviews(true));
+});
+
+// Animate when user clicks out of textbox
+textInput.addEventListener('blur', () => {
+  updateAllPreviews(true);
+});
