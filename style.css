@@ -84,10 +84,10 @@ textarea:focus {
 
 /* Font box with shimmer */
 .font-box {
-  width: 80%;
-  max-width: 500px;
-  height: 70px; /* make it shorter */
-  padding: 10px;
+  width: fit-content;
+  max-width: 80%;
+  min-height: 44px;
+  padding: 10px 14px;
   border: 2px solid #ffffff;
   border-radius: 8px;
   background: linear-gradient(270deg, #ffe6eb, #ffd1dc, #ffe6eb);
